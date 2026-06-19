@@ -1,0 +1,32 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Catch-all safety net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Reservas match patterns
+    match /reservas/{reservaId} {
+      // Allowed public read for slot checking
+      allow read: if true;
+      
+      // Allow creation of reservation with strict validation
+      allow create: if request.resource.data.keys().hasAll(['cliente', 'telefono', 'servicio', 'fecha', 'hora', 'barbero', 'estado', 'timestamp', 'fuente'])
+        && request.resource.data.cliente is string
+        && request.resource.data.cliente.size() > 0
+        && request.resource.data.cliente.size() <= 200
+        && request.resource.data.telefono is string
+        && request.resource.data.telefono.size() > 0
+        && request.resource.data.servicio is string
+        && request.resource.data.fecha is string
+        && request.resource.data.hora is string
+        && request.resource.data.barbero is string
+        && request.resource.data.estado is string
+        && request.resource.data.fuente == 'web';
+
+      // Allow admin / public updates with general updates
+      allow update, delete: if true;
+    }
+  }
+}

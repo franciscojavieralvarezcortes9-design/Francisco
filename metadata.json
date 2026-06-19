@@ -1,0 +1,6 @@
+{
+  "name": "Rojas Barber",
+  "description": "Aplicación de reservas para la barbería Rojas Barber de Emmanuel Rojas",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

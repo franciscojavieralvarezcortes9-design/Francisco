@@ -1,0 +1,62 @@
+{
+  "entities": {
+    "Reserva": {
+      "title": "Reserva",
+      "description": "Una reserva o cita de la barbería",
+      "type": "object",
+      "properties": {
+        "cliente": {
+          "type": "string",
+          "description": "Nombre del cliente"
+        },
+        "telefono": {
+          "type": "string",
+          "description": "Teléfono de contacto del cliente"
+        },
+        "servicio": {
+          "type": "string",
+          "description": "Nombre del servicio o corte reservado"
+        },
+        "fecha": {
+          "type": "string",
+          "description": "Fecha de la reserva YYYY-MM-DD"
+        },
+        "hora": {
+          "type": "string",
+          "description": "Hora de la reserva HH:MM"
+        },
+        "barbero": {
+          "type": "string",
+          "description": "Nombre del barbero"
+        },
+        "estado": {
+          "type": "string",
+          "description": "Estado de la reserva, e.g. pendiente, confirmada, en proceso, finalizada, cancelada"
+        },
+        "timestamp": {
+          "type": "object",
+          "description": "Sello de tiempo del servidor"
+        },
+        "fuente": {
+          "type": "string",
+          "description": "Fuente de registro (generalmente 'web')"
+        }
+      },
+      "required": [
+        "cliente",
+        "telefono",
+        "servicio",
+        "fecha",
+        "hora",
+        "barbero",
+        "estado"
+      ]
+    }
+  },
+  "firestore": {
+    "/reservas/{reservaId}": {
+      "schema": "Reserva",
+      "description": "Colección de reservas en el sistema Rojas Barber"
+    }
+  }
+}

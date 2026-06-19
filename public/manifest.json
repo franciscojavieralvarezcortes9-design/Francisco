@@ -1,0 +1,17 @@
+{
+  "short_name": "Rojas Barber",
+  "name": "Rojas Barber - Barbería Rancagua",
+  "description": "Reserva tu turno en Rojas Barber Rancagua por orden de llegada",
+  "icons": [
+    {
+      "src": "/src/assets/images/signo_neon_infinito.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#0d0d0d",
+  "theme_color": "#121212",
+  "display": "standalone",
+  "orientation": "portrait"
+}
